@@ -1,0 +1,19 @@
+<nav>
+  <div class="nav-wrapper container">
+    <%= link_to "Book Dict", root_path, class: "brand-logo left" %>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "About", home_about_path %></li>
+      <li><%= link_to "Help", home_help_path %></li>
+    </ul>
+    <ul id="dropdown-target" class="dropdown-content">
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "About", home_about_path %></li>
+      <li><%= link_to "Help", home_help_path %></li>
+    </ul>
+    <a  href="#" class="dropdown-trigger right hide-on-large-only" data-target="dropdown-target"><i class="material-icons">arrow_drop_down</i></a>
+  </div>
+</nav>
+<script>
+    $(".dropdown-trigger").dropdown();
+</script>
