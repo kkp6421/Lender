@@ -1,0 +1,7 @@
+<% unless flash.empty? %>
+  <script>
+      <% flash.each do |key, message| %>
+        M.toast({html: '<%= message %>'})
+      <% end %>
+  </script>
+<% end %>
