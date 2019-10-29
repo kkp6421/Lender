@@ -1,6 +1,18 @@
 <% if owner_signed_in? %>
   <h5>
-    <%= link_to 'ログアウト', destroy_owner_session_path, method: :delete %>
+    <%= link_to 'ログアウト', destroy_owner_session_path, method: :delete %><br/>
     <%= link_to 'オーナー情報変更', edit_owner_registration_path %>
-  </h5>
+  </h5><br/><br/>
+  <h5>Books List</h5>
+  <ul class="collection">
+    <% @books.each do |book| %>
+      <%= link_to book do %>
+        <li class="collection-item">
+          <%= book.name %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
 <% end %>
+<br/>
+<%= link_to "register new book", new_book_path, class: "btn" %>

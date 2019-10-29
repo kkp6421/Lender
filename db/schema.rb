@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_28_114706) do
+ActiveRecord::Schema.define(version: 2019_10_29_085011) do
+
+  create_table "books", force: :cascade do |t|
+    t.string "ISBN"
+    t.string "name"
+    t.string "author"
+    t.string "publisher"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id", "created_at"], name: "index_books_on_owner_id_and_created_at"
+    t.index ["owner_id"], name: "index_books_on_owner_id"
+  end
 
   create_table "owners", force: :cascade do |t|
     t.string "email", default: "", null: false
