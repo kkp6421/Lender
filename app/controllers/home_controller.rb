@@ -5,7 +5,7 @@ class HomeController < ApplicationController
       redirect_to new_owner_session_path
     end
 
-    @books = current_owner.books.paginate(page: params[:page], per_page: 1) if owner_signed_in?
+    @books = current_owner.books.paginate(page: params[:page], per_page: 8) if owner_signed_in?
   end
 
   def about
