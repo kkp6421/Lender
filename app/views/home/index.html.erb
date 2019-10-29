@@ -3,10 +3,4 @@
     <%= link_to 'ログアウト', destroy_owner_session_path, method: :delete %>
     <%= link_to 'オーナー情報変更', edit_owner_registration_path %>
   </h5>
-<% else %>
-  <h5>
-    <%= link_to "オーナー登録", new_owner_registration_path %>
-    <%= link_to "ログイン", new_owner_session_path %>
-    <%= link_to "パスワード変更", new_owner_password_path %>
-  </h5>
 <% end %>
