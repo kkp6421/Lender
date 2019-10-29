@@ -1,8 +1,4 @@
 <% if owner_signed_in? %>
-  <h5>
-    <%= link_to 'ログアウト', destroy_owner_session_path, method: :delete %><br/>
-    <%= link_to 'オーナー情報変更', edit_owner_registration_path %>
-  </h5><br/><br/>
   <h5>Books List</h5>
   <div class="collection">
     <% @books.each do |book| %>
@@ -16,5 +12,4 @@
   <br/>
   <%= will_paginate @books %>
 <% end %>
-<br/>
-<%= link_to "register new book", new_book_path, class: "btn" %>
+<%= link_to "+", new_book_path, class: "btn-floating btn-large waves-effect waves-light red right" %>

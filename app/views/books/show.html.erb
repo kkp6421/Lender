@@ -13,9 +13,12 @@
         <th><i class="material-icons">people</i>Author</th>
         <td><%= @book.author %></td>
       </tr>
-      <tr class="collection">
+      <tr class="collection-item">
         <th><i class="material-icons">location_city</i>Publisher</th>
         <td><%= @book.publisher %></td>
+      </tr>
+      <tr class="collection">
+        <th></th><td></td>
       </tr>
   </table>
   <%= link_to "Edit this book information", edit_book_path, class: "btn" %><br/><br/>

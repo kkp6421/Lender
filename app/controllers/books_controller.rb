@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   def create
     @book = current_owner.books.build(book_params)
     if @book.save
-      redirect_to root_path
+      redirect_to root_path, notice: "作成しました。"
     else
       render :new
     end
@@ -18,7 +18,7 @@ class BooksController < ApplicationController
   def destroy
     @book = current_owner.books.find(params[:id])
     @book.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: "削除しました。"
   end
 
   def edit
@@ -27,7 +27,7 @@ class BooksController < ApplicationController
   def update
     @book = current_owner.books.find(params[:id])
     if @book.update(book_params)
-      redirect_to @book
+      redirect_to @book, notice: "更新しました。"
     end
   end
 
