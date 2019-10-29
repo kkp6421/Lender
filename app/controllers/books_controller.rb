@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :owner_signed_in?, only: [:create, :destroy]
+  before_action :owner_signed_in?, only: [:create, :destroy, :show]
   def show
     @book = current_owner.books.find_by(params[:id])
   end
