@@ -4,15 +4,15 @@
     <%= link_to 'オーナー情報変更', edit_owner_registration_path %>
   </h5><br/><br/>
   <h5>Books List</h5>
-  <ul class="collection">
+  <div class="collection">
     <% @books.each do |book| %>
-      <%= link_to book do %>
-        <li class="collection-item">
+      <%= link_to(book) do %>
+        <%= link_to(book, class: "collection-item") do %>
           <%= book.name %>
-        </li>
+        <% end %>
       <% end %>
     <% end %>
-  </ul>
+  </div>
 <% end %>
 <br/>
 <%= link_to "register new book", new_book_path, class: "btn" %>
