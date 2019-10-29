@@ -43,6 +43,11 @@ gem 'jquery-rails'
 
 #devise
 gem 'devise'
+#kaminari
+gem 'will_paginate'
+gem 'will_paginate-materialize', git: 'https://github.com/mldoscar/will_paginate-materialize', branch: 'master'
+gem 'font-awesome-rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
