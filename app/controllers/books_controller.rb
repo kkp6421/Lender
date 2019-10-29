@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   before_action :owner_signed_in?, only: [:create, :destroy, :show]
   def show
-    @book = current_owner.books.find_by(params[:id])
+    @book = current_owner.books.find(params[:id])
   end
   def new
     @book = current_owner.books.build
@@ -16,16 +16,16 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = current_owner.books.find_by(params[:id])
+    @book = current_owner.books.find(params[:id])
     @book.destroy
     redirect_to root_path
   end
 
   def edit
-    @book = current_owner.books.find_by(params[:id])
+    @book = current_owner.books.find(params[:id])
   end
   def update
-    @book = current_owner.books.find_by(params[:id])
+    @book = current_owner.books.find(params[:id])
     if @book.update(book_params)
       redirect_to @book
     end
