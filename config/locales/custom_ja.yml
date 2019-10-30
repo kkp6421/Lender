@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      book: 書籍
+    attributes:
+      book:
+        name: 書籍名
+        author: 著者名
+        publisher: 出版社

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError, with: :error404
-  rescue_from Exception, with: :error500
+  #rescue_from Exception, with: :error500
 
   def error404
     render 'error/error404', status: 404, formats: [:html]
