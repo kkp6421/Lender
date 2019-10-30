@@ -11,6 +11,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to root_path, notice: "作成しました。"
     else
+      flash[:notice] = "入力ミスがあります。"
       render :new
     end
   end
@@ -28,6 +29,9 @@ class BooksController < ApplicationController
     @book = current_owner.books.find(params[:id])
     if @book.update(book_params)
       redirect_to @book, notice: "更新しました。"
+    else
+      flash[:notice] = "入力ミスがあります。"
+      render :edit
     end
   end
 

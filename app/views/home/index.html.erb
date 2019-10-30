@@ -1,5 +1,5 @@
 <% if owner_signed_in? %>
-  <h5>Books List</h5>
+  <h5>蔵書一覧</h5><br/>
   <div class="collection">
     <% @books.each do |book| %>
       <%= link_to(book) do %>

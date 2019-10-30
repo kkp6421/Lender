@@ -1,10 +1,10 @@
 class CreateBooks < ActiveRecord::Migration[5.2]
   def change
     create_table :books do |t|
-      t.string :ISBN
-      t.string :name
-      t.string :author
-      t.string :publisher
+      t.string :ISBN, null: false
+      t.string :name, null: false
+      t.string :author, null: false
+      t.string :publisher, null false
       t.references :owner, foreign_key: true
 
       t.timestamps
