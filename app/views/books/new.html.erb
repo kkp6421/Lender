@@ -1,25 +1,28 @@
-<h5>本の新規登録</h5><br/>
-<%= form_for(@book) do |f| %>
-  <div class="field">
-    <i class="material-icons">format_list_numbered</i>
-    <%= f.label :ISBN %><br/>
-    <%= f.text_field :ISBN, placeholder: "Please type book ISBN." %>
-  </div>
-  <div class="field">
-    <i class="material-icons">book</i>
-    <%= f.label :name %><br/>
-    <%= f.text_field :name, placeholder: "Please type book name." %>
-  </div>
-  <div class="field">
-    <i class="material-icons">people</i>
-    <%= f.label :author %><br/>
-    <%= f.text_field :author, placeholder: "Please type book author." %>
-  </div>
-  <div class="field">
-    <i class="material-icons">location_city</i>
-    <%= f.label :publisher %><br/>
-    <%= f.text_field :publisher, placeholder: "please type book publisher" %>
-  </div>
-  <br/>
-  <%= f.submit "Register", class: "btn" %>
-<% end %>
+<br/>
+<div id="to_white">
+  <h5>本の新規登録</h5><br/>
+  <%= form_for(@book) do |f| %>
+    <div class="field">
+      <i class="material-icons">format_list_numbered</i>
+      <%= f.label :ISBN %><br/>
+      <%= f.text_field :ISBN, placeholder: "Please type book ISBN." %>
+    </div>
+    <div class="field">
+      <i class="material-icons">book</i>
+      <%= f.label :name %><br/>
+      <%= f.text_field :name, placeholder: "Please type book name." %>
+    </div>
+    <div class="field">
+      <i class="material-icons">people</i>
+      <%= f.label :author %><br/>
+      <%= f.text_field :author, placeholder: "Please type book author." %>
+    </div>
+    <div class="field">
+      <i class="material-icons">location_city</i>
+      <%= f.label :publisher %><br/>
+      <%= f.text_field :publisher, placeholder: "please type book publisher" %>
+    </div>
+    <br/>
+    <%= f.submit "Register", class: "btn" %>
+  <% end %>
+</div>

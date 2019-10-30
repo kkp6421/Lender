@@ -1,4 +1,4 @@
-<% if owner_signed_in? %>
+<div class="main">
   <h5>蔵書一覧</h5><br/>
   <div class="collection">
     <% @books.each do |book| %>
@@ -11,6 +11,9 @@
   </div>
   <br/>
   <%= will_paginate @books %>
-<% end %>
-<%= link_to "＋", new_book_path, class: "btn-floating btn-large waves-effect waves-light red right" %>
-<br/>
+  <%= link_to "＋", new_book_path, class: "btn-floating btn-large waves-effect waves-light red right" %>
+  <br/>
+  <div class="search-books hide-on-med-and-down">
+    <%= render 'parts/search_book' %>
+  </div>
+</div>

@@ -5,4 +5,9 @@ class Book < ApplicationRecord
   validates :name, presence: true
   validates :author, presence: true
   validates :publisher, presence: true
+
+  def self.search(search)
+    return nil unless search.nil?
+    Book.where("name LIKE ?", "%#{search}%")
+  end
 end

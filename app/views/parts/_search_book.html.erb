@@ -1,0 +1,17 @@
+<%= form_tag(url: root_path, class: "field", method: "get") do %>
+  <label class="material-icons">search</label><%= text_field_tag(:search, '', placeholder: "本の名前を入力してください。") %>
+  <%= submit_tag("検索", class: "btn") %>
+<% end %><br/>
+<% unless @search_books.nil? %>
+  <div class="collection">
+    <% @search_books.each do |book| %>
+      <%= link_to(book) do %>
+        <%= link_to(book, class: "collection-item") do %>
+          <%= book.name %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+    <h6>当てはまる本はありません。</h6>
+<% end %>
