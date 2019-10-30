@@ -1,9 +1,4 @@
 <% if owner_signed_in? %>
-  <ul id="nav-mobile" class="hide-on-med-and-down side-options">
-    <li><%= link_to 'アカウントの編集', edit_owner_registration_path %></li>
-    <li><%= link_to 'ログアウト', destroy_owner_session_path, method: :delete %></li>
-    <li><%= link_to "アカウント削除", registration_path(current_owner), data: { confirm: "Are you sure?" }, method: :delete, class: "red-text text-darken-2" %></li>
-  </ul>
   <ul id="slide-out" class="sidenav">
     <li><%= link_to 'アカウントの編集', edit_owner_registration_path %></li>
     <li><div class="divider"></div></li>
@@ -11,7 +6,7 @@
     <li><div class="divider"></div></li>
     <li><%= link_to "アカウント削除", registration_path(current_owner), data: { confirm: "Are you sure?" }, method: :delete, class: "red-text text-darken-2" %></li>
   </ul>
-  <a href="#" data-target="slide-out" class="sidenav-trigger hide-on-large-only"><i class="material-icons large-size menu">menu</i></a>
+  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons large-size menu">menu</i></a>
 <% end %>
 
 <script>
