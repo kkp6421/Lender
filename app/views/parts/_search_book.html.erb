@@ -2,7 +2,7 @@
   <label class="material-icons">search</label><%= text_field_tag(:search, '', placeholder: "本の名前を入力してください。") %>
   <%= submit_tag("検索", class: "btn") %>
 <% end %><br/>
-<% unless @search_books.nil? %>
+<% if !@search_books.nil? %>
   <div class="collection">
     <% @search_books.each do |book| %>
       <%= link_to(book) do %>
@@ -13,5 +13,5 @@
     <% end %>
   </div>
 <% else %>
-    <h6>当てはまる本はありません。</h6>
+    <h6>当てはまる書籍はありません。</h6>
 <% end %>
