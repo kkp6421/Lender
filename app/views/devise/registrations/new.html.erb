@@ -13,7 +13,7 @@
     <i class="material-icons">lock_outline</i>
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <label>(最低<%= @minimum_password_length %>文字)</label>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
