@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 2019_10_29_085011) do
 
   create_table "books", force: :cascade do |t|
-    t.string "ISBN"
-    t.string "name"
-    t.string "author"
-    t.string "publisher"
+    t.string "ISBN", null: false
+    t.string "name", null: false
+    t.string "author", null: false
+    t.string "publisher", null: false
     t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(version: 2019_10_29_085011) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_owners_on_email", unique: true
