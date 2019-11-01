@@ -1,0 +1,21 @@
+
+<br/>
+<div id="to_white">
+  <h5>詳細</h5><br/>
+  <table class="collection">
+    <tr class="collection-item">
+      <th><i class="material-icons">format_list_numbered</i><label>名前</label></th>
+      <td><%= @borrower.name %></td>
+    </tr>
+    <tr class="collection-item">
+      <th><i class="material-icons">book</i><label>Twitter ID</label></th>
+      <td><%= @borrower.twitter_id %></td>
+    </tr>
+    <tr class="collection">
+      <th></th><td></td>
+    </tr>
+  </table>
+  <%= link_to "Edit this borrower", edit_borrower_path, class: "btn" %>
+  <%= link_to "delete this borrower", @borrower, class: "btn red", method: :delete,
+              data: { confirm: "You sure?" }%>
+</div>

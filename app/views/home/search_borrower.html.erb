@@ -1,0 +1,18 @@
+<br/>
+<div id="to_white">
+  <h5>貸出先の検索</h5>
+  <%= form_tag(url: root_path, class: "field", method: "get") do %>
+    <label class="material-icons">search</label>
+    <%= text_field_tag(:search, '', placeholder: "貸出先の名前を入力してください。") %>
+    <%= submit_tag("検索", class: "btn") %>
+  <% end %><br/>
+  <div class="collection">
+    <% @search_borrower.each do |borrower| %>
+      <%= link_to(borrower, class: "collection-item") do %>
+        <%= borrower.name %>
+      <% end %>
+    <% end %>
+  </div>
+  <br/>
+  <%= link_to "＋", new_borrower_path, class: "btn-floating btn-large waves-effect waves-light red right" %><br/>
+</div>

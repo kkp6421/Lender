@@ -1,0 +1,19 @@
+
+<br/>
+<div id="to_white">
+  <h5>貸出先の新規登録</h5><br/>
+  <%= form_for(@borrower, url: {action: "create"}) do |f| %>
+    <div class="field">
+      <i class="material-icons">person</i>
+      <label>名前</label>
+      <%= f.text_field :name, placeholder: "borrower name." %>
+    </div>
+    <div class="field">
+      <i class="material-icons">account_circle</i>
+      <label>Twitter ID</label><br/>
+      <%= f.text_field :twitter_id, placeholder: "borrower twitter_id" %>
+    </div>
+    <%= f.submit "登録", class: "btn" %>
+    <br/>
+  <% end %>
+</div>

@@ -13,4 +13,12 @@ class HomeController < ApplicationController
 
   def help
   end
+
+  def search_book
+    @search_books = Book.where(owner_id: current_owner.id).search(params[:search])
+  end
+
+  def search_borrower
+    @search_borrower = Borrower.search(params[:search])
+  end
 end
