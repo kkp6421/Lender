@@ -19,6 +19,6 @@ class HomeController < ApplicationController
   end
 
   def search_borrower
-    @search_borrower = Borrower.search(params[:search])
+    @search_borrowers = Borrower.search(params[:search])
   end
 end

@@ -6,13 +6,17 @@
     <%= text_field_tag(:search, '', placeholder: "貸出先の名前を入力してください。") %>
     <%= submit_tag("検索", class: "btn") %>
   <% end %><br/>
-  <div class="collection">
-    <% @search_borrower.each do |borrower| %>
-      <%= link_to(borrower, class: "collection-item") do %>
-        <%= borrower.name %>
+  <% if @search_borrowers.nil? %>
+    <h6>当てはまる書籍はありません。</h6>
+  <% else %>
+    <div class="collection">
+      <% @search_borrowers.each do |book| %>
+        <%= link_to(book, class: "collection-item") do %>
+          <%= book.name %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
   <br/>
   <%= link_to "＋", new_borrower_path, class: "btn-floating btn-large waves-effect waves-light red right" %><br/>
 </div>
