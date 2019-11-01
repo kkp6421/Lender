@@ -6,7 +6,7 @@ class Borrower < ApplicationRecord
   validates :twitter_id, presence: true
 
   def self.search(search)
-    return Borrower.all unless search
+    return nil unless search
     Borrower.where("name LIKE ?", "%#{search}%")
   end
 end
