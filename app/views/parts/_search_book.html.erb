@@ -4,10 +4,14 @@
   <%= text_field_tag(:search, '', placeholder: "本の名前を入力してください。") %>
   <%= submit_tag("検索", class: "btn") %>
 <% end %><br/>
-<div class="collection">
-  <% @search_books.each do |book| %>
-    <%= link_to(book, class: "collection-item") do %>
-      <%= book.name %>
+<% if @search_books.nil? %>
+  <h6>当てはまる書籍はありません。</h6>
+<% else %>
+  <div class="collection">
+    <% @search_books.each do |book| %>
+      <%= link_to(book, class: "collection-item") do %>
+        <%= book.name %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>

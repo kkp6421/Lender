@@ -10,7 +10,7 @@ class Book < ApplicationRecord
   validates :publisher, presence: true
 
   def self.search(search)
-    return Book.all unless search
+    return nil unless search
     Book.where("name LIKE ?", "%#{search}%")
   end
 end

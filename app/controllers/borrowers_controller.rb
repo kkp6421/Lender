@@ -3,11 +3,13 @@ class BorrowersController < ApplicationController
 
   def show
     @borrower = Borrower.find(params[:id])
+    @books = @borrower.books
   end
 
   def new
     @borrower = Borrower.new
   end
+
   def create
     @borrower = Borrower.new(borrower_params)
     if @borrower.save
@@ -33,6 +35,12 @@ class BorrowersController < ApplicationController
     end
   end
 
+  def lend
+    @search_books = Book.where(owner_id: current_owner.id).search(params[:search])
+    @borrower = Borrower.find(params[:id])
+
+  end
+
   def destroy
     @borrower = Borrower.find(params[:id])
     @borrower.destroy
@@ -44,8 +52,5 @@ class BorrowersController < ApplicationController
     params.require(:borrower).permit(
       :name, :twitter_id
     )
-  end
-  def borrower_search_prams
-    params.permit(:search)
   end
 end
