@@ -19,7 +19,7 @@
           <% if book.activate %>
             <%= link_to "貸し出し不可", "", class: "btn red" %>
           <% else %>
-            <%= link_to "貸し出し可", lend_borrower_path(:id=>@borrower.id, :book_id=>book.id),
+            <%= link_to "貸し出し可", lend_borrower_path(:book_id=>book.id),
                         class: "btn blue", :method => :post,
                         data: { confirm: "貸し出しますか？" } %>
           <% end %>
