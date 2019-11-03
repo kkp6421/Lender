@@ -45,6 +45,7 @@ class BorrowersController < ApplicationController
         @book = Book.find(params[:book_id])
         @book.activate = true
         @book.save
+        flash[:alert] = Book.find(params[:book_id]).activate
         flash[:notice] = "貸し出しました。"
         redirect_to @borrower
       end
