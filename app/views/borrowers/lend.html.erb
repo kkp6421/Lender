@@ -13,15 +13,17 @@
     <% else %>
       <% @search_books.each do |book| %>
         <div class="collection">
-          <%= book.name %>
+          <div class="collection-item">
+            <%= book.name %>
+          </div>
+          <% if book.activate %>
+            <%= link_to "貸し出し不可", "", class: "btn red" %>
+          <% else %>
+            <%= link_to "貸し出し可", lend_borrower_path(:id=>@borrower.id, :book_id=>book.id),
+                        class: "btn blue", :method => :post,
+                        data: { confirm: "貸し出しますか？" } %>
+          <% end %>
         </div>
-        <% if book.activate %>
-          <%= link_to "貸し出し不可", "", class: "btn red" %>
-        <% else %>
-          <%= link_to "貸し出し", lend_borrower_path(:id=>@borrower.id, :book_id=>book.id),
-                      class: "btn blue", :method => :post,
-                      data: { confirm: "貸し出しますか？" } %>
-        <% end %>
       <% end %>
     <% end %>
   </div>

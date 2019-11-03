@@ -7,6 +7,8 @@
     <li><div class="divider"></div></li>
     <li><%= link_to '貸出先の検索', home_search_borrower_path %></li>
     <li><div class="divider"></div></li>
+    <li><%= link_to '貸出先の新規登録', new_borrower_path %></li>
+    <li><div class="divider"></div></li>
     <li><%= link_to 'ログアウト', destroy_owner_session_path, method: :delete %></li>
     <li><div class="divider"></div></li>
     <li><%= link_to "アカウント削除", registration_path(current_owner), data: { confirm: "本当によろしいですか?" }, method: :delete, class: "red-text text-darken-2" %></li>

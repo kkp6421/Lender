@@ -17,14 +17,15 @@
     </table>
     <label>貸し出し中</label><br/>
     <div class="collection">
-      <% @books.each do |book| %>
+      <% @active_books.each do |book| %>
         <% if book.borrowers.last == @borrower and book.activate %>
           <%= link_to(book, class: "collection-item") do %>
             <%= book.name %>
           <% end %>
           <%= link_to "返却", return_book_borrower_path(:book_id=>book.id),
-          class: "btn", :method => :post,
-          data: { confirm: "返却しますか？" } %>
+                      class: "btn", :method => :post,
+                      data: { confirm: "返却しますか？" } %>
+          <div class="divider"></div>
         <% end %>
       <% end %>
     </div><br/>
@@ -33,6 +34,7 @@
       <% @books.each do |book| %>
         <%= link_to(book, class: "collection-item") do %>
           <%= book.name %>
+          <%= book.created_at %>
         <% end %>
       <% end %>
     </div><br/>

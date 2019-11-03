@@ -4,6 +4,7 @@ class BorrowersController < ApplicationController
   def show
     @borrower = Borrower.find(params[:id])
     @books = @borrower.books
+    @active_books = @books.distinct
   end
 
   def new
