@@ -17,7 +17,7 @@
             <%= book.name %>
           </div>
           <% if book.activate %>
-            <%= link_to "貸し出し不可", "", class: "btn red" %>
+            <%= link_to "貸し出し不可", "#", class: "btn red" %>
           <% else %>
             <%= link_to "貸し出し可", lend_borrower_path(:book_id=>book.id),
                         class: "btn blue", :method => :post,
