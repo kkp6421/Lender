@@ -1,18 +1,20 @@
-
-<br/>
-<div id="to_white">
-  <h5>貸出先の編集</h5><br/>
-  <%= form_for(@borrower) do |f| %>
-    <div class="field">
-      <i class="material-icons">person</i>
-      <label>名前</label><br/>
-      <%= f.text_field :name, placeholder: "borrower name." %>
-    </div>
-    <div class="field">
-      <i class="material-icons">account_circle</i>
-      <label>Twitter ID</label><br/>
-      <%= f.text_field :twitter_id, placeholder: "twitter_id" %>
-    </div>
-    <%= f.submit "Update", class: "btn" %>
-  <% end %>
-</div>
+<% if owner_signed_in? %>
+  <br/>
+  <div id="to_white">
+    <h5>貸出先の編集</h5><br/>
+    <%= form_for(@borrower) do |f| %>
+      <div class="field">
+        <i class="material-icons">person</i>
+        <label>名前</label><br/>
+        <%= f.text_field :name, placeholder: "borrower name." %>
+      </div>
+      <div class="field">
+        <i class="material-icons">account_circle</i>
+        <label>Twitter ID</label><br/>
+        <%= f.text_field :twitter_id, placeholder: "twitter_id" %>
+      </div>
+      <%= f.submit "Update", class: "btn" %>
+    <% end %>
+  </div>
+<% else %>
+<% end %>

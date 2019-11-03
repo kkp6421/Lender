@@ -9,9 +9,16 @@ Rails.application.routes.draw do
   get 'home/search_borrower'
   post 'home/search_borrower', to: 'home#search_borrower'
   resources :books
-  get 'borrowers/lend/:id', to: 'borrowers#lend'
-  post '/borrowers/lend/:id', to: 'borrowers#lend'
-  resources :borrowers
+  #post 'borrowers/lend/:id/', to: 'borrowers#borrow', as: 'borrower_borrow'
+  resources :borrowers do
+    member do
+      get :lend
+      post :lend
+      post :return_book
+    end
+  end
+  get 'borrowers/:id/lend/', to: 'borrowers#lend'
+  post 'borrowers/lend/:id', to: 'borrowers#lend'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #match '*path', to: 'application#error404', via: :all
 end

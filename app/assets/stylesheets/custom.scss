@@ -38,3 +38,12 @@ body{
   background-color: white;
   padding: 5% 5%;
 }
+nav{
+  z-index: 9999;
+  position: fixed;
+}
+
+.position{
+  position: fixed;
+  top: 10%;
+}

@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_10_31_111851) do
     t.string "name", null: false
     t.string "author", null: false
     t.string "publisher", null: false
+    t.boolean "activate", default: false, null: false
     t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

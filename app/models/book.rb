@@ -2,7 +2,7 @@ class Book < ApplicationRecord
   belongs_to :owner
 
   has_many :book_borrowers
-  has_many :borrowers, through: :book_borrowers
+  has_many :borrowers, through: :book_borrowers, dependent: :destroy
 
   validates :ISBN, presence: true
   validates :name, presence: true

@@ -10,9 +10,9 @@
     <h6>当てはまる書籍はありません。</h6>
   <% else %>
     <div class="collection">
-      <% @search_borrowers.each do |book| %>
-        <%= link_to(book, class: "collection-item") do %>
-          <%= book.name %>
+      <% @search_borrowers.each do |borrower| %>
+        <%= link_to(borrower, class: "collection-item") do %>
+          <%= borrower.name %>
         <% end %>
       <% end %>
     </div>

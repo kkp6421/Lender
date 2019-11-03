@@ -1,20 +1,29 @@
-<div id="to_white">
-  <h5>本の貸し出し</h5>
-  <%= form_tag(url: borrower_path(@borrower), class: "field", method: "get") do %>
-    <br/>
-    <label class="material-icons">search</label>
-    <%= text_field_tag(:search, '', placeholder: "本の名前を入力してください。") %>
-    <%= submit_tag("検索", class: "btn", url: @borrower) %>
-  <% end %><br/>
-  <% if @search_books.nil? %>
-    <h6>当てはまる書籍はありません。</h6>
-  <% else %>
-    <div class="collection">
+<% if owner_signed_in? %>
+  <div id="to_white">
+    <h5>本の貸し出し</h5>
+    <%= @borrower.name %>さんの貸し出し画面です。
+    <%= form_tag(url: lend_borrower_path(@borrower), class: "field", method: "get") do %>
+      <br/>
+      <label class="material-icons">search</label>
+      <%= text_field_tag(:search, '', placeholder: "本の名前を入力してください。") %>
+      <%= submit_tag("検索", class: "btn", url: @borrower) %>
+    <% end %><br/>
+    <% if @search_books.nil? %>
+      <h6>当てはまる書籍はありません。</h6>
+    <% else %>
       <% @search_books.each do |book| %>
-        <%= link_to(book, class: "collection-item") do %>
+        <div class="collection">
           <%= book.name %>
+        </div>
+        <% if book.activate %>
+          <%= link_to "貸し出し不可", "", class: "btn red" %>
+        <% else %>
+          <%= link_to "貸し出し", lend_borrower_path(:id=>@borrower.id, :book_id=>book.id),
+                      class: "btn blue", :method => :post,
+                      data: { confirm: "貸し出しますか？" } %>
         <% end %>
       <% end %>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% else %>
+<% end %>

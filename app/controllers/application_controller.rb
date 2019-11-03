@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :set_host
-  rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError, with: :error404
+  #rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError, with: :error404
   #rescue_from Exception, with: :error500
 
   def set_host

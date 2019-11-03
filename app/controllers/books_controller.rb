@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
-  before_action :owner_signed_in?, only: [:create, :destroy, :show]
+  before_action :redirect_login
   def show
     @book = current_owner.books.find(params[:id])
+    @borrower = @book.borrowers.last
   end
   def new
     @book = current_owner.books.build
@@ -32,6 +33,12 @@ class BooksController < ApplicationController
     else
       flash[:notice] = "入力ミスがあります。"
       render :edit
+    end
+  end
+
+  def redirect_login
+    unless owner_signed_in?
+      redirect_to new_owner_session_path
     end
   end
 

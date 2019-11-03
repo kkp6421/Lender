@@ -1,6 +1,6 @@
 class Borrower < ApplicationRecord
   has_many :book_borrowers
-  has_many :books, through: :book_borrowers
+  has_many :books, through: :book_borrowers, dependent: :destroy
 
   validates :name, presence: true
   validates :twitter_id, presence: true
